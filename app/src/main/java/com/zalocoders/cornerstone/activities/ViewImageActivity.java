@@ -19,19 +19,17 @@ import com.google.gson.Gson;
 import com.zalocoders.cornerstone.Adapters.SlidingImage_Adapter;
 import com.zalocoders.cornerstone.Models.News;
 import com.zalocoders.cornerstone.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class ViewImageActivity extends AppCompatActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     List<String> IMAGES;
+    String description;
 
     private ArrayList<String> ImagesArray = new ArrayList<String>();
 
@@ -61,6 +59,7 @@ public class ViewImageActivity extends AppCompatActivity {
 
         Log.e("img",news);
 
+        description = news1.getDescription();
         IMAGES.addAll(Arrays.asList(news1.getImageUrls()));
 
     }
@@ -74,7 +73,9 @@ public class ViewImageActivity extends AppCompatActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
 
 
-        mPager.setAdapter(new SlidingImage_Adapter(ViewImageActivity.this, ImagesArray));
+        SlidingImage_Adapter adapter = new SlidingImage_Adapter(ImagesArray,ViewImageActivity.this,description);
+        mPager.setAdapter(adapter);
+        adapter.setDescriptionText(description);
 
 
         final float density = getResources().getDisplayMetrics().density;
@@ -86,7 +87,6 @@ public class ViewImageActivity extends AppCompatActivity {
             currentPage = 0;
         }
         mPager.setCurrentItem(currentPage++, true);
-
 
     }
 

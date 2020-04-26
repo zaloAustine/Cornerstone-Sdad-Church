@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -20,12 +21,15 @@ public class SlidingImage_Adapter extends PagerAdapter {
     private ArrayList<String> IMAGES;
     private LayoutInflater inflater;
     private Context context;
+    String descriptionText;
 
 
-    public SlidingImage_Adapter(Context context, ArrayList<String> IMAGES) {
+
+    public SlidingImage_Adapter(ArrayList<String> IMAGES, Context context,String descriptionText) {
+        this.IMAGES = IMAGES;
+        this.inflater = LayoutInflater.from(context);
         this.context = context;
-        this.IMAGES=IMAGES;
-        inflater = LayoutInflater.from(context);
+        this.descriptionText = descriptionText;
     }
 
     @Override
@@ -48,6 +52,10 @@ public class SlidingImage_Adapter extends PagerAdapter {
 
         Picasso.get().load(IMAGES.get(position)).into(imageView);
 
+
+        TextView description = imageLayout.findViewById(R.id.description);
+        description.setText(descriptionText);
+
         view.addView(imageLayout, 0);
 
         return imageLayout;
@@ -67,5 +75,9 @@ public class SlidingImage_Adapter extends PagerAdapter {
         return null;
     }
 
+
+    public void setDescriptionText(String descriptionText){
+        this.descriptionText = descriptionText;
+    }
 
 }

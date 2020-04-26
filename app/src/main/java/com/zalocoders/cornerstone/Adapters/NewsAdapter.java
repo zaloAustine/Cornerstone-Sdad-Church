@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.teleclinic.bulent.smartimageview.SmartImageViewLayout;
 import com.zalocoders.cornerstone.Models.News;
@@ -43,14 +44,24 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.newsViewHolder
     @Override
     public void onBindViewHolder(@NonNull newsViewHolder holder, int position) {
 
-        News news = mNewsList.get(position);
+        final News news = mNewsList.get(position);
         holder.description.setText(news.getDescription());
         holder.movieImage.putImages(news.getImageUrls());
-
         ViewImages(holder.movieImage,news);
-
        setAnimation(holder.itemView,position);
 
+
+
+       holder.more.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i = new Intent(context, ViewImageActivity.class);
+               Gson g = new Gson();
+               String news1 = g.toJson(news,News.class);
+               i.putExtra("News",news1);
+               context.startActivity(i);
+           }
+       });
      //  RightLeft(holder.itemView,position);
 
 
@@ -79,12 +90,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.newsViewHolder
     public class newsViewHolder extends RecyclerView.ViewHolder{
         private TextView description;
         private SmartImageViewLayout movieImage;
+        MaterialButton more;
 
         public newsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             description = itemView.findViewById(R.id.description);
             movieImage =  itemView.findViewById(R.id.images);
+            more = itemView.findViewById(R.id.more);
 
 
 

@@ -46,6 +46,7 @@
             android:backgroundTint="@android:color/white"
             android:textColor="@color/colorPrimary"
             android:gravity="center|left"
+            android:id="@+id/more"
             android:elevation="0dp"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:drawableRight="@drawable/more"

@@ -11,13 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ViewImageActivity"
-            android:theme="@style/Theme.MaterialComponents">
-
-        </activity>
+        <activity android:name=".activities.ViewSongActivity"></activity>
+        <activity
+            android:name=".activities.ViewImageActivity"
+            android:theme="@style/Theme.MaterialComponents"></activity>
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

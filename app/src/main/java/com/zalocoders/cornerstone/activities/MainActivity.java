@@ -75,7 +75,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             case 3:
                 getSupportActionBar().setTitle("Cornerstone Giving");
                 break;
-
+            case 4:
+                getSupportActionBar().setTitle("Hymnal");
+                break;
         }
 
     }
