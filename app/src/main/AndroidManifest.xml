@@ -11,10 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ViewSongActivity"></activity>
+        <activity android:name=".activities.GivingActivity"></activity>
+        <activity android:name=".activities.ListenSermonActivity" />
+        <activity
+            android:name=".activities.ViewSongActivity"
+            android:theme="@style/Theme.MaterialComponents" />
         <activity
             android:name=".activities.ViewImageActivity"
-            android:theme="@style/Theme.MaterialComponents"></activity>
+            android:theme="@style/Theme.MaterialComponents" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme"

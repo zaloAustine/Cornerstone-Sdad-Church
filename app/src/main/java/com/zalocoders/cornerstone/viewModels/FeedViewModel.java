@@ -22,13 +22,13 @@ public class FeedViewModel extends ViewModel {
 
         News n = new News();
         n.setDescription("Due to COVID-19 and the recommendation of the NC Governor, we are canceling church at all of our physical locations. Join us online Sunday at 9:30AM, 11:30AM, 2:00PM, 5:00PM, 8:00PM  10:00PM EDT");
-        String[] images = {"https://wallpaperaccess.com/thumb/469742.jpg"};
+        String[] images = {"https://i.ytimg.com/vi/yhbl3QWUeNg/maxresdefault.jpg"};
 
         n.setImageUrls(images);
 
         News n1 = new News();
         n1.setDescription("Nature, in the broadest sense, is the natural, physical, or material world or universe. \"Nature\" can refer to the phenomena of the physical world, and also to life in general. ... Although humans are part of nature, human activity is often understood as a separate category from other natural phenomena.");
-        String[] images1 = {"https://wallpaperaccess.com/thumb/469742.jpg","https://t3.ftcdn.net/jpg/02/48/92/96/240_F_248929619_JkVBYroM1rSrshWJemrcjriggudHMUhV.jpg","https://mcdn.wallpapersafari.com/small/23/93/dFlO8m.jpg","https://mcdn.wallpapersafari.com/small/91/40/6rKfeV.jpg"};
+        String[] images1 = {"https://catholicphilly.com/media-files/2019/10/Senegal-Church-goers.jpg"};
 
         n1.setImageUrls(images1);
 

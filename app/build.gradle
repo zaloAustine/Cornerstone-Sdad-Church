@@ -69,5 +69,8 @@ dependencies {
     //gson
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    //music player
+    implementation 'io.github.jeancsanchez.jcplayer:jcplayer:2.6.0-alpha'
+
 
 }

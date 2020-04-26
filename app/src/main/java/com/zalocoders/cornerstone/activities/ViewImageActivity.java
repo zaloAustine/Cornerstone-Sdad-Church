@@ -95,7 +95,11 @@ public class ViewImageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                startActivity(new Intent(ViewImageActivity.this,MainActivity.class));
+
+                Intent i = new Intent(ViewImageActivity.this,MainActivity.class);
+                i.putExtra("event",2);
+                startActivity(i);
+
                 break;
         }
         return super.onOptionsItemSelected(item);

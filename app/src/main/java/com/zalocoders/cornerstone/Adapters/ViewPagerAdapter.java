@@ -24,13 +24,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         switch (i){
             case 0 :
-                return  new FeedFragment();
+            return new SermonFragment();
             case 1:
-                return  new DiscoverFragment();
+                return  new GivingFragment();
             case 2:
-                return new SermonFragment();
+                return  new FeedFragment();
             case 3:
-                return new GivingFragment();
+                return new DiscoverFragment();
             case 4:
                 return new HymnalFragment();
             default:

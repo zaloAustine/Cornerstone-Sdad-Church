@@ -1,10 +1,12 @@
 package com.zalocoders.cornerstone.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +22,7 @@ public class ViewSongActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_song);
 
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getValues();
 
 
@@ -60,6 +62,18 @@ public class ViewSongActivity extends AppCompatActivity {
 
     return finalString;
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+              Intent i = new Intent(ViewSongActivity.this,MainActivity.class);
+              i.putExtra("hymnal",2);
+              startActivity(i);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabItem;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         initViews();
         setUpViewPager();
 
+        checkBackPress();
     }
 
     private void setUpViewPager() {
@@ -64,19 +66,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         viewPager.setCurrentItem(tab.getPosition());
         switch (tab.getPosition()){
             case 0:
-                getSupportActionBar().setTitle("Cornerstone News");
+                getSupportActionBar().setTitle("Cornerstone Sermon");
                 break;
             case 1:
-                getSupportActionBar().setTitle("Discover Cornerstone");
-                break;
-            case 2:
-                getSupportActionBar().setTitle("Cornerstone Sermons");
-                break;
-            case 3:
                 getSupportActionBar().setTitle("Cornerstone Giving");
                 break;
-            case 4:
+            case 2:
+                getSupportActionBar().setTitle("Cornerstone Events");
+                break;
+            case 3:
                 getSupportActionBar().setTitle("Hymnal");
+                break;
+            case 4:
+                getSupportActionBar().setTitle("Discover Cornerstone");
+
                 break;
         }
 
@@ -90,5 +93,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+    }
+
+
+    public void checkBackPress(){
+
+        Intent intent = getIntent();
+        if(intent.hasExtra("hymnal")){
+
+            viewPager.setCurrentItem(3);
+
+        }else  if(intent.hasExtra("event")){
+
+            viewPager.setCurrentItem(2);
+
+        }
     }
 }
